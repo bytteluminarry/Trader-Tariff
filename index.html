@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UK Integrated Online Tariff</title>
+
+    <link rel="stylesheet" href="assets/styles/main.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="fieldset">
+            <h2>Search the UK Integrated Online Tariff</h2>
+
+            <div class="search-bar">
+                <input type="text" placeholder="Enter the name of the goods or Commodity code">
+
+                <button>
+                    <img src="assets/icons/search.png" alt="Search">
+                </button>
+            </div>
+        </div>
+
+        <div id="searchResults" class="search-result">
+            <h2 class="title">Search results for ‘shirt’</h2>
+
+            <div class="inner">
+                <h3>Best commodity matches for ‘shirt’</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Code</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="">Of cotton &gt; Other (code 6206300090)</a></td>
+                            <td>
+                                <div class="code-container">
+                                    <div class="code-digit primary">62</div>
+                                    <div class="code-digit secondary">06</div>
+                                    <div class="code-digit">30</div>
+                                    <div class="code-digit">00</div>
+                                    <div class="code-digit">90</div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><a href="">Of wool or fine animal hair (code 6206200000)</a></td>
+                            <td>
+                                <div class="code-container">
+                                    <div class="code-digit primary">62</div>
+                                    <div class="code-digit secondary">06</div>
+                                    <div class="code-digit">20</div>
+                                    <div class="code-digit">00</div>
+                                    <div class="code-digit">00</div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><a href="">Of man-made fibres (code 6206400000)</a></td>
+                            <td>
+                                <div class="code-container">
+                                    <div class="code-digit primary">62</div>
+                                    <div class="code-digit secondary">06</div>
+                                    <div class="code-digit">40</div>
+                                    <div class="code-digit">00</div>
+                                    <div class="code-digit">00</div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><a href="">Of silk or silk waste (code 6206100000)</a></td>
+                            <td>
+                                <div class="code-container">
+                                    <div class="code-digit primary">62</div>
+                                    <div class="code-digit secondary">06</div>
+                                    <div class="code-digit">10</div>
+                                    <div class="code-digit">00</div>
+                                    <div class="code-digit">00</div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><a href="">Of cotton (code 6106100000)</a></td>
+                            <td>
+                                <div class="code-container">
+                                    <div class="code-digit primary">61</div>
+                                    <div class="code-digit secondary">06</div>
+                                    <div class="code-digit">10</div>
+                                    <div class="code-digit">00</div>
+                                    <div class="code-digit">00</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="commodityInformation" class="search-result">
+            <h2 class="title">UK Integrated Online Tariff</h2>
+
+            <div class="inner">
+                <h3>Commodity 6109 1000 10</h3>
+
+                <table class="normal">
+                    <tbody>
+                        <tr>
+                            <th>Commodity</td>
+                            <td>6109 1000 10</td>
+                        </tr>
+
+                        <tr>
+                            <th>Classification</td>
+                            <td>T-shirts</td>
+                        </tr>
+
+                        <tr>
+                            <th>Commodity valid from</td>
+                            <td>10 March 2015</td>
+                        </tr>
+
+                        <tr>
+                            <th>Supplementary unit</td>
+                            <td class="informative">
+                                <div>Number of items (p/st)</div>
+                                <a class="arrow" onclick="toggleInformativeDiv(this)">What are supplementary units?</a>
+                                <div>
+                                    Supplementary units are used when an additional measurement unit is needed on
+                                    customs declarations. For example: the quantity of the products as well as the
+                                    weight in kilograms.
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>Date of trade</td>
+                            <td>1 April 2024</td>
+                        </tr>
+
+                        <tr>
+                            <th>Filter by country</td>
+                            <td>All countries</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="allCountriesSelection" class="selection">
+            <span id="countriesSpan">Trade between the UK and</span>
+
+            <div class="inner" onclick="toggleDropdown(event)">
+                <span>All countries</span>
+
+                <ul>
+                    <li>All countries</li>
+                    <li>Albania</li>
+                    <li>Algeria</li>
+                    <li>Andorra</li>
+                    <li>Angola</li>
+                    <li>Antigua and Barbuda</li>
+                    <li>Argentina</li>
+                    <li>Armenia</li>
+                    <li>Australia</li>
+                    <li>Austria</li>
+                    <li>Azerbaijan</li>
+                    <li>Bahamas</li>
+                    <li>Bahrain</li>
+                    <li>Bangladesh</li>
+                    <li>Barbados</li>
+                    <li>Belarus</li>
+                    <li>Belgium</li>
+                    <li>Belize</li>
+                    <li>Benin</li>
+                    <li>Bhutan</li>
+                    <li>Bolivia</li>
+                    <li>Bosnia and Herzegovina</li>
+                    <li>Botswana</li>
+                    <li>Brazil</li>
+                    <li>Brunei</li>
+                    <li>Bulgaria</li>
+                    <li>Burkina Faso</li>
+                    <li>Burundi</li>
+                    <li>Cambodia</li>
+                    <li>Cameroon</li>
+                    <li>Canada</li>
+                    <li>Cape Verde</li>
+                    <li>Central African Republic</li>
+                    <li>Chad</li>
+                    <li>Chile</li>
+                    <li>China</li>
+                    <li>Colombia</li>
+                </ul>
+            </div>
+
+            <a onclick="">Reset to all countries</a>
+        </div>
+
+        <div id="tabPanel" class="tab-panel">
+            <ul class="tabs">
+                <li class="active">Import</li>
+                <li>Export</li>
+                <li>Rules of origin</li>
+                <li>Notes</li>
+            </ul>
+
+            <div class="panels-list">
+                <div class="panel show">
+                    <h2 class="title">Importing into the UK</h2>
+
+                    <ul class="indexed-list">
+                        <li><a href="#">Import controls</a></li>
+                        <li><a href="#">Import duties</a></li>
+                        <li><a href="#">Quotas</a></li>
+                        <li><a href="#">Trade remedies, safeguards and retaliatory duties</a></li>
+                        <li><a href="#">Suspensions</a></li>
+                        <li><a href="#">Import VAT and excise</a></li>
+                    </ul>
+
+                    <div class="information">
+                        <h3>Import controls</h3>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Country</th>
+                                    <th>Measure type</th>
+                                    <th>Conditions</th>
+                                    <th>Footnotes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>North Korea (KP)</td>
+                                    <td>Restriction on entry into free circulation</td>
+                                    <td><a href="">Conditions</a></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>North Korea (KP)</td>
+                                    <td>Import control on luxury goods</td>
+                                    <td><a href="">Conditions</a></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Ukraine (UA)</td>
+                                    <td>Restriction on entry into free circulation</td>
+                                    <td><a href="">Conditions</a></td>
+                                    <td><a href="">SN008</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="information">
+                        <h3>Import controls</h3>
+
+                        <div class="label">
+                            <div class="image">
+                                <img src="assets/icons/calculator.png" alt="Calculator">
+                            </div>
+
+                            <div class="text">
+                                <p>The table below lists the import duties that apply to the import of commodity
+                                    6109100010.</p>
+
+                                <p>Use our tariff duty calculator to <span>work out the duties and taxes applicable to
+                                        the import of commodity 6109 1000 10.</span> Click on a measure type to find out
+                                    more about the measure and the preference code to be used on declarations.</p>
+                            </div>
+                        </div>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Country</th>
+                                    <th>Measure type</th>
+                                    <th>Duty rate</th>
+                                    <th>Conditions</th>
+                                    <th>Footnotes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href="#">All countries (1011)</a></td>
+                                    <td><a href="#">Third country duty</a></td>
+                                    <td>12.00%</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">Channel Islands (1080)</a></td>
+                                    <td><a href="#">UK-CD Customs Union</a></td>
+                                    <td>n/a</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">CARIFORUM (1033)</a></td>
+                                    <td><a href="#">Tariff preference</a></td>
+                                    <td>0.00%</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">Central America (2200)</a></td>
+                                    <td><a href="#">Tariff preference</a></td>
+                                    <td>0.00%</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">Developing Countries Trading Scheme (DCTS) - Comprehensive
+                                            Preferences (1062)</a></td>
+                                    <td><a href="#">Tariff preference</a></td>
+                                    <td>0.00%</td>
+                                    <td><a href="#">Conditions</a></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">Developing Countries Trading Scheme (DCTS) - Enhanced Preferences
+                                            (1061)</a></td>
+                                    <td><a href="#">Tariff preference</a></td>
+                                    <td>0.00%</td>
+                                    <td><a href="#">Conditions</a></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">Developing Countries Trading Scheme (DCTS) - Standard Preferences
+                                            (1060)</a></td>
+                                    <td><a href="#">Tariff preference</a></td>
+                                    <td>9.60%</td>
+                                    <td><a href="#">Conditions</a></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Albania (AL)</td>
+                                    <td><a href="#">Tariff preference</a></td>
+                                    <td>0.00%</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Andorra (AD)</td>
+                                    <td><a href="#">Tariff preference</a></td>
+                                    <td>0.00%</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Australia (AU)</td>
+                                    <td><a href="#">Tariff preference</a></td>
+                                    <td>0.00%</td>
+                                    <td><a href="#">Conditions</a></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="information">
+                        <h3>Quotas</h3>
+
+                        <div class="label">
+                            <div class="text" style="padding-left: 20px;">
+                                <p>Quotas allow a limited amount of goods to be imported at a lower duty rate. Once the
+                                    quota has been used up, you will revert to the out-of-quota rate, which may be the
+                                    third-country duty or a preferential rate.</p>
+
+                                <p>Quotas can be non-preferential (open to many countries) or preferential (restricted
+                                    to a particular trading partner).</p>
+                            </div>
+                        </div>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Country</th>
+                                    <th>Measure type</th>
+                                    <th>Duty rate</th>
+                                    <th>Conditions</th>
+                                    <th>Footnotes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Canada (CA)</td>
+                                    <td><a href="#">Preferential tariff quota 058342</a></td>
+                                    <td>0.00%</td>
+                                    <td><a href="#">Conditions</a></td>
+                                    <td><a href="#">PR007</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Costa Rica (CR)</td>
+                                    <td><a href="#">Preferential tariff quota 057025</a></td>
+                                    <td>0.00%</td>
+                                    <td><a href="#">Conditions</a></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Nicaragua (NI)</td>
+                                    <td><a href="#">Preferential tariff quota 057116</a></td>
+                                    <td>0.00%</td>
+                                    <td><a href="#">Conditions</a></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Panama (PA)</td>
+                                    <td><a href="#">Preferential tariff quota 057065</a></td>
+                                    <td>0.00%</td>
+                                    <td><a href="#">Conditions</a></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="information">
+                        <h3>Trade remedies, safeguards and retaliatory duties</h3>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Country</th>
+                                    <th>Measure type</th>
+                                    <th>Duty rate</th>
+                                    <th>Conditions</th>
+                                    <th>Footnotes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Belarus (BY)</td>
+                                    <td>Additional duties</td>
+                                    <td>35.00%</td>
+                                    <td><a href="#">Conditions</a></td>
+                                    <td><a href="#">SN060</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Russia (RU)</td>
+                                    <td>Additional duties</td>
+                                    <td>35.00%</td>
+                                    <td><a href="#">Conditions</a></td>
+                                    <td><a href="#">SN060</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="information">
+                        <h3>Suspensions</h3>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Country</th>
+                                    <th>Measure type</th>
+                                    <th>Duty rate</th>
+                                    <th>Conditions</th>
+                                    <th>Footnotes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href="#">All countries (1011)</a></td>
+                                    <td><a href="#">Suspension - goods for certain categories of ships, boats and other
+                                            vessels and for drilling or production platforms</a></td>
+                                    <td>0.00%</td>
+                                    <td><a href="#">Conditions</a></td>
+                                    <td><a href="#">Footnotes</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="information">
+                        <h3>Import VAT and excise</h3>
+
+                        <div class="label">
+                            <div class="text" style="padding-left: 20px;">
+                                <p>An import VAT rate of <strong>20.00%</strong> or <strong>0.00%</strong> may apply if
+                                    certain conditions are met.</p>
+
+                                <p>Read more about <span>VAT rates on different goods and services</span> and the
+                                    conditions that
+                                    apply to these rates.</p>
+
+                                <p><span>Excise duties</span> are not chargeable on this commodity.</p>
+                            </div>
+                        </div>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Country</th>
+                                    <th>Measure type</th>
+                                    <th>Duty rate</th>
+                                    <th>Conditions</th>
+                                    <th>Footnotes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href="#">All countries (1011)</a></td>
+                                    <td>Value added tax Standard rate</td>
+                                    <td>20.00%</td>
+                                    <td></td>
+                                    <td><a href="#">03020</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">All countries (1011)</a></td>
+                                    <td>
+                                        Value added tax <br>
+                                        Additional code: VATZ <br>
+                                        VAT zero rate
+                                    </td>
+                                    <td>0.00%</td>
+                                    <td></td>
+                                    <td><a href="#">03026</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <header>
+                        <h2 class="title">Exporting from the UK</h2>
+                        <p>The commodity code for exporting and <span>Intrastat reporting</span> is 6109 1000.</p>
+                    </header>
+
+                    <div class="information">
+                        <h3>UK export controls</h3>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Country</th>
+                                    <th>Measure type</th>
+                                    <th>Duty Rate</th>
+                                    <th>Conditions</th>
+                                    <th>Footnotes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href="#">All countries (1011)</a></td>
+                                    <td>Supplementary unit</td>
+                                    <td>items (p/st)</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Belarus (BY)</td>
+                                    <td>Restriction on export</td>
+                                    <td></td>
+                                    <td><a href="#">Conditions</a></td>
+                                    <td><a href="#">SN030</a></td>
+                                </tr>
+                                <tr>
+                                    <td>North Korea (KP)</td>
+                                    <td>Export control on restricted goods and technologies</td>
+                                    <td></td>
+                                    <td><a href="#">Conditions</a></td>
+                                    <td><a href="#">EX008</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Russia (RU)</td>
+                                    <td>Restriction on export</td>
+                                    <td></td>
+                                    <td><a href="#">Conditions</a></td>
+                                    <td><a href="#">SN009</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Syria (SY)</td>
+                                    <td>Export control on restricted goods and technologies</td>
+                                    <td></td>
+                                    <td><a href="#">Conditions</a></td>
+                                    <td><a href="#">EX013</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="label">
+                            <div class="text" style="padding-left: 20px;">
+                                <h3>Check duties and customs procedures for exporting goods</h3>
+
+                                <p>Find information about how to move goods from the UK to the rest of the world.</p>
+
+                                <p>Use this service to check:</p>
+
+                                <ul>
+                                    <li>rules and restrictions</li>
+                                    <li>tax and duty rates</li>
+                                    <li>what exporting documents you need</li>
+                                </ul>
+
+                                <p>This service is only available in the UK due to licencing restrictions.</p>
+
+                                <p><span>Check how to export commodity goods (link opens in new tab)</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="block">
+                        <header>
+                            <h2 class="title">Preferential rules of origin</h2>
+                        </header>
+
+                        <p class="main">To view rules of origin, select a country with which the UK has a trade
+                            agreement from the list above.</p>
+
+                        <p class="main">Find out more about preferential rules of origin:</p>
+
+                        <ul class="circle-list">
+                            <li><a href="">Check your goods meet the rules of origin (opens in new tab)</a></li>
+                            <li><a href="">Pay less Customs Duty on goods from a country with a UK trade agreement
+                                    (opens in new tab)</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="block">
+                        <header>
+                            <h2 class="title">Non-preferential rules of origin</h2>
+                        </header>
+
+                        <p class="main"><a href="">The Customs (Origin of Chargeable Goods) (EU Exit) Regulations 2020
+                                (opens in
+                                new tab)</a></p>
+
+                        <p class="main">Non-preferential rules of origin allows the implementation of several commercial
+                            policy
+                            measures such as:</p>
+
+                        <ul class="circle-list">
+                            <li>anti-dumping duties</li>
+                            <li>countervailing duties</li>
+                            <li>trade embargoes</li>
+                            <li>safeguarding measures</li>
+                            <li>quantitative restrictions</li>
+                            <li>tariff quotas</li>
+                        </ul>
+
+                        <p class="main">They are also used for trade statistics, public tenders and origin marking.</p>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h2 class="title">Notes for commodity 6109100010</h2>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/scripts/main.js"></script>
+</body>
+
+</html>
