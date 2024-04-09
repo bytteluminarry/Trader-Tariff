@@ -15,9 +15,10 @@
             <h2>Search the UK Integrated Online Tariff</h2>
 
             <div class="search-bar">
-                <input type="text" placeholder="Enter the name of the goods or Commodity code">
+                <input value="6109100010" id="inputField" type="text"
+                    placeholder="Enter the name of the goods or Commodity code">
 
-                <button>
+                <button onclick="checkInput()">
                     <img src="assets/icons/search.png" alt="Search">
                 </button>
             </div>
@@ -110,23 +111,23 @@
             <h2 class="title">UK Integrated Online Tariff</h2>
 
             <div class="inner">
-                <h3>Commodity 6109 1000 10</h3>
+                <h3 id="commodityCode"></h3>
 
                 <table class="normal">
                     <tbody>
                         <tr>
                             <th>Commodity</td>
-                            <td>6109 1000 10</td>
+                            <td id="commodityCode2"></td>
                         </tr>
 
                         <tr>
                             <th>Classification</td>
-                            <td>T-shirts</td>
+                            <td id="commodityDescription"></td>
                         </tr>
 
                         <tr>
                             <th>Commodity valid from</td>
-                            <td>10 March 2015</td>
+                            <td id="commodityValidFrom"></td>
                         </tr>
 
                         <tr>
@@ -144,7 +145,7 @@
 
                         <tr>
                             <th>Date of trade</td>
-                            <td>1 April 2024</td>
+                            <td id="currentDate"></td>
                         </tr>
 
                         <tr>
@@ -160,50 +161,14 @@
             <span id="countriesSpan">Trade between the UK and</span>
 
             <div class="inner" onclick="toggleDropdown(event)">
-                <span>All countries</span>
+                <span id="selectedCountry">All countries</span>
 
-                <ul>
+                <ul id="allCountriesSelectionList">
                     <li>All countries</li>
-                    <li>Albania</li>
-                    <li>Algeria</li>
-                    <li>Andorra</li>
-                    <li>Angola</li>
-                    <li>Antigua and Barbuda</li>
-                    <li>Argentina</li>
-                    <li>Armenia</li>
-                    <li>Australia</li>
-                    <li>Austria</li>
-                    <li>Azerbaijan</li>
-                    <li>Bahamas</li>
-                    <li>Bahrain</li>
-                    <li>Bangladesh</li>
-                    <li>Barbados</li>
-                    <li>Belarus</li>
-                    <li>Belgium</li>
-                    <li>Belize</li>
-                    <li>Benin</li>
-                    <li>Bhutan</li>
-                    <li>Bolivia</li>
-                    <li>Bosnia and Herzegovina</li>
-                    <li>Botswana</li>
-                    <li>Brazil</li>
-                    <li>Brunei</li>
-                    <li>Bulgaria</li>
-                    <li>Burkina Faso</li>
-                    <li>Burundi</li>
-                    <li>Cambodia</li>
-                    <li>Cameroon</li>
-                    <li>Canada</li>
-                    <li>Cape Verde</li>
-                    <li>Central African Republic</li>
-                    <li>Chad</li>
-                    <li>Chile</li>
-                    <li>China</li>
-                    <li>Colombia</li>
                 </ul>
             </div>
 
-            <a onclick="">Reset to all countries</a>
+            <a onclick="filterBySelection('All Countries')">Reset to all countries</a>
         </div>
 
         <div id="tabPanel" class="tab-panel">
@@ -219,12 +184,12 @@
                     <h2 class="title">Importing into the UK</h2>
 
                     <ul class="indexed-list">
-                        <li><a href="#">Import controls</a></li>
-                        <li><a href="#">Import duties</a></li>
-                        <li><a href="#">Quotas</a></li>
-                        <li><a href="#">Trade remedies, safeguards and retaliatory duties</a></li>
-                        <li><a href="#">Suspensions</a></li>
-                        <li><a href="#">Import VAT and excise</a></li>
+                        <li><a href="#importControlsTbody">Import controls</a></li>
+                        <li><a href="#importDutiesTbody">Import duties</a></li>
+                        <li><a href="#quotasTbody">Quotas</a></li>
+                        <li><a href="#additionalDutiesTbody">Trade remedies, safeguards and retaliatory duties</a></li>
+                        <li><a href="#suspensionsTbody">Suspensions</a></li>
+                        <li><a href="#importVatTbody">Import VAT and excise</a></li>
                     </ul>
 
                     <div class="information">
@@ -235,11 +200,12 @@
                                 <tr>
                                     <th>Country</th>
                                     <th>Measure type</th>
+                                    <th></th>
                                     <th>Conditions</th>
                                     <th>Footnotes</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="importControlsTbody">
                                 <tr>
                                     <td>North Korea (KP)</td>
                                     <td>Restriction on entry into free circulation</td>
@@ -263,7 +229,7 @@
                     </div>
 
                     <div class="information">
-                        <h3>Import controls</h3>
+                        <h3>Import duties</h3>
 
                         <div class="label">
                             <div class="image">
@@ -271,12 +237,9 @@
                             </div>
 
                             <div class="text">
-                                <p>The table below lists the import duties that apply to the import of commodity
-                                    6109100010.</p>
+                                <p id="label1"></p>
 
-                                <p>Use our tariff duty calculator to <span>work out the duties and taxes applicable to
-                                        the import of commodity 6109 1000 10.</span> Click on a measure type to find out
-                                    more about the measure and the preference code to be used on declarations.</p>
+                                <p id="label2"></p>
                             </div>
                         </div>
 
@@ -290,7 +253,7 @@
                                     <th>Footnotes</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="importDutiesTbody">
                                 <tr>
                                     <td><a href="#">All countries (1011)</a></td>
                                     <td><a href="#">Third country duty</a></td>
@@ -392,7 +355,7 @@
                                     <th>Footnotes</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="quotasTbody">
                                 <tr>
                                     <td>Canada (CA)</td>
                                     <td><a href="#">Preferential tariff quota 058342</a></td>
@@ -438,7 +401,7 @@
                                     <th>Footnotes</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="additionalDutiesTbody">
                                 <tr>
                                     <td>Belarus (BY)</td>
                                     <td>Additional duties</td>
@@ -470,7 +433,7 @@
                                     <th>Footnotes</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="suspensionsTbody">
                                 <tr>
                                     <td><a href="#">All countries (1011)</a></td>
                                     <td><a href="#">Suspension - goods for certain categories of ships, boats and other
@@ -509,7 +472,7 @@
                                     <th>Footnotes</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="importVatTbody">
                                 <tr>
                                     <td><a href="#">All countries (1011)</a></td>
                                     <td>Value added tax Standard rate</td>
@@ -536,7 +499,7 @@
                 <div class="panel">
                     <header>
                         <h2 class="title">Exporting from the UK</h2>
-                        <p>The commodity code for exporting and <span>Intrastat reporting</span> is 6109 1000.</p>
+                        <p id="label3"></p>
                     </header>
 
                     <div class="information">
@@ -552,7 +515,7 @@
                                     <th>Footnotes</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="exportsTbody">
                                 <tr>
                                     <td><a href="#">All countries (1011)</a></td>
                                     <td>Supplementary unit</td>
@@ -658,7 +621,7 @@
                 </div>
 
                 <div class="panel">
-                    <h2 class="title">Notes for commodity 6109100010</h2>
+                    <h2 class="title" id="label4"></h2>
 
                 </div>
             </div>
