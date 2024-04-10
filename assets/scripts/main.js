@@ -953,3 +953,11 @@ function ShowConditionPopup(conditionJson) {
 
     document.body.appendChild(popupBackground);
 }
+
+const currentUrl = window.location.search;
+const searchParams = new URLSearchParams(currentUrl);
+
+if (searchParams.has('query')) {
+    document.getElementById('inputField').value = searchParams.get('query');
+    checkInput();
+} 
