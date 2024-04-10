@@ -15,8 +15,8 @@
             <h2>Search the UK Integrated Online Tariff</h2>
 
             <div class="search-bar">
-                <input value="6109100010" id="inputField" type="text"
-                    placeholder="Enter the name of the goods or Commodity code">
+                <!-- 6109100010 -->
+                <input id="inputField" type="text" placeholder="Enter the name of the goods or Commodity code">
 
                 <button onclick="checkInput()">
                     <img src="assets/icons/search.png" alt="Search">
@@ -25,10 +25,10 @@
         </div>
 
         <div id="searchResults" class="search-result">
-            <h2 class="title">Search results for ‘shirt’</h2>
+            <h2 class="title" id="searchResultsLabel1"></h2>
 
             <div class="inner">
-                <h3>Best commodity matches for ‘shirt’</h3>
+                <h3 id="searchResultsLabel2"></h3>
 
                 <table>
                     <thead>
@@ -37,7 +37,7 @@
                             <th>Code</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="searchResultsTbody">
                         <tr>
                             <td><a href="">Of cotton &gt; Other (code 6206300090)</a></td>
                             <td>
@@ -239,7 +239,7 @@
                             <div class="text">
                                 <p id="label1"></p>
 
-                                <p id="label2"></p>
+                                <p id="label2" onclick="dutyCalculator()"></p>
                             </div>
                         </div>
 
@@ -454,11 +454,15 @@
                                 <p>An import VAT rate of <strong>20.00%</strong> or <strong>0.00%</strong> may apply if
                                     certain conditions are met.</p>
 
-                                <p>Read more about <span>VAT rates on different goods and services</span> and the
+                                <p>Read more about <span
+                                        onclick="window.open('https://www.gov.uk/guidance/rates-of-vat-on-different-goods-and-services','_blank')">VAT
+                                        rates on different goods and services</span> and the
                                     conditions that
                                     apply to these rates.</p>
 
-                                <p><span>Excise duties</span> are not chargeable on this commodity.</p>
+                                <p><span
+                                        onclick="window.open('https://www.gov.uk/government/publications/uk-trade-tariff-excise-duties-reliefs-drawbacks-and-allowances/uk-trade-tariff-excise-duties-reliefs-drawbacks-and-allowances','_blank')">Excise
+                                        duties</span> are not chargeable on this commodity.</p>
                             </div>
                         </div>
 
@@ -499,7 +503,7 @@
                 <div class="panel">
                     <header>
                         <h2 class="title">Exporting from the UK</h2>
-                        <p id="label3"></p>
+                        <p id="label3" onclick="window.open('https://www.gov.uk/intrastat','_blank')"></p>
                     </header>
 
                     <div class="information">
@@ -570,7 +574,9 @@
 
                                 <p>This service is only available in the UK due to licencing restrictions.</p>
 
-                                <p><span>Check how to export commodity goods (link opens in new tab)</span></p>
+                                <p><span
+                                        onclick="window.open('https://www.check-duties-customs-exporting-goods.service.gov.uk/whyusing','_blank')">Check
+                                        how to export commodity goods (link opens in new tab)</span></p>
                             </div>
                         </div>
                     </div>
@@ -588,9 +594,15 @@
                         <p class="main">Find out more about preferential rules of origin:</p>
 
                         <ul class="circle-list">
-                            <li><a href="">Check your goods meet the rules of origin (opens in new tab)</a></li>
-                            <li><a href="">Pay less Customs Duty on goods from a country with a UK trade agreement
-                                    (opens in new tab)</a></li>
+                            <li
+                                onclick="window.open('https://www.gov.uk/guidance/check-your-goods-meet-the-rules-of-origin','_blank');">
+                                <a>Check your goods meet the rules of origin (opens in new tab)</a>
+                            </li>
+                            <li
+                                onclick="window.open('https://www.gov.uk/guidance/import-and-export-goods-using-preference-agreements','_blank')">
+                                <a>Pay less Customs Duty on goods from a country with a UK trade agreement
+                                    (opens in new tab)</a>
+                            </li>
                         </ul>
                     </div>
 
@@ -599,9 +611,12 @@
                             <h2 class="title">Non-preferential rules of origin</h2>
                         </header>
 
-                        <p class="main"><a href="">The Customs (Origin of Chargeable Goods) (EU Exit) Regulations 2020
+                        <p class="main"
+                            onclick="window.open('https://www.gov.uk/government/publications/reference-document-for-the-customs-origin-of-chargeable-goods-eu-exit-regulations-2020','_blank');">
+                            <a>The Customs (Origin of Chargeable Goods) (EU Exit) Regulations 2020
                                 (opens in
-                                new tab)</a></p>
+                                new tab)</a>
+                        </p>
 
                         <p class="main">Non-preferential rules of origin allows the implementation of several commercial
                             policy

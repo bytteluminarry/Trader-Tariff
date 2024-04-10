@@ -142,21 +142,11 @@ function formatDateString(dateString) {
 
 let selectedCommodityCode = null;
 
-function checkInput() {
-    var input = document.getElementById('inputField').value.trim();
-
-    var digitPattern = /^\d+$/;
-
-    if (input.trim() === '') {
-        alert('Input is empty.');
-    } else if (digitPattern.test(input)) {
-        selectedCommodityCode = input;
-        RenderCommodityCode(input);
-    } else {
-        alert('Input contains other characters.');
-    }
+function dutyCalculator() {
+    window.open(`https://trade-tariff.service.gov.uk/duty-calculator/uk/${selectedCommodityCode}/import-date`, '_blank');
 }
 
+document.querySelector('#searchResultsTbody').innerHTML = "";
 document.querySelector('#importDutiesTbody').innerHTML = "";
 document.querySelector('#quotasTbody').innerHTML = "";
 document.querySelector('#additionalDutiesTbody').innerHTML = "";
@@ -165,6 +155,64 @@ document.querySelector('#importVatTbody').innerHTML = "";
 document.querySelector('#importControlsTbody').innerHTML = "";
 document.querySelector('#exportsTbody').innerHTML = "";
 document.querySelector('#allCountriesSelectionList').innerHTML = "";
+
+function checkInput() {
+    var input = document.getElementById('inputField').value.trim();
+
+    var digitPattern = /^\d+$/;
+
+    if (input.trim() === '') {
+        alert('Input is empty.');
+    } else if (digitPattern.test(input)) {
+        RenderCommodityCode(input);
+    } else {
+        getCommodityCode(input);
+    }
+}
+
+function getCommodityCode(name) {
+    fetch(`https://data.api.trade.gov.uk/v1/datasets/uk-tariff-2021-01-01/versions/v2.1.0/data?format=json&query-s3-select=SELECT%20c.commodity__code,c.commodity__description%20FROM%20S3Object[*].commodities[*]%20c%20WHERE%20lower(c.commodity__description)%20like%20'%${name}%'`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            document.querySelector('#searchResultsLabel1').innerHTML = `Search results for ‘${name}’`;
+            document.querySelector('#searchResultsLabel2').innerHTML = `Best commodity matches for ‘${name}’`;
+
+            document.querySelector('#searchResults').style.display = "flex";
+
+            data.rows.forEach((item) => {
+                const newRow = document.createElement('tr');
+
+                const nameCell = document.createElement('td');
+                nameCell.innerHTML = `<a onclick="RenderCommodityCode('${item.commodity__code}')">${item.commodity__description}</a>`;
+
+                const codeCell = document.createElement('td');
+                const codeCellTD = document.createElement('div');
+                codeCellTD.classList.add('code-container');
+                codeCellTD.innerHTML = "";
+
+                for (let i = 0; i < item.commodity__code.length; i += 2) {
+                    const pair = item.commodity__code.slice(i, i + 2);
+                    codeCellTD.innerHTML += i == 0 ? `<div class="code-digit primary">${pair}</div>` :
+                        i == 2 ? `<div class="code-digit secondary">${pair}</div>` : `<div class="code-digit">${pair}</div>`;
+                }
+
+                codeCell.appendChild(codeCellTD);
+
+                newRow.appendChild(nameCell);
+                newRow.appendChild(codeCell);
+
+                document.querySelector('#searchResultsTbody').appendChild(newRow);
+            });
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+}
 
 let Countries = [];
 let MeasuresTypes = [];
@@ -184,7 +232,6 @@ function RenderCommodityCode(input) {
     PreferenceCodes = [];
     OrderNumbers = [];
     Measures = [];
-    document.querySelector('#allCountriesSelectionList').innerHTML = "";
 
     fetch(`https://www.trade-tariff.service.gov.uk/api/v2/commodities/${input}`)
         .then(response => {
@@ -197,7 +244,7 @@ function RenderCommodityCode(input) {
         .then(response => {
             let data = response.data;
 
-            document.querySelector('#commodityCode').innerText = input;
+            document.querySelector('#commodityCode').innerText = `Commodity ${input}`;
             document.querySelector('#commodityCode2').innerText = input;
             document.querySelector('#commodityDescription').innerText = data.attributes.description;
             document.querySelector('#commodityValidFrom').innerText = formatDateString(data.attributes.validity_start_date);
@@ -276,6 +323,11 @@ function RenderCommodityCode(input) {
                 });
 
                 RenderRelations();
+
+                selectedCommodityCode = input;
+                document.querySelector('#allCountriesSelectionList').innerHTML = "";
+                document.querySelector('#allCountriesSelection').style.display = "flex";
+                document.querySelector('#tabPanel').style.display = "block";
             }
         })
         .catch(error => {

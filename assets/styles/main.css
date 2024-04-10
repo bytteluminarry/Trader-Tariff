@@ -84,6 +84,7 @@ body {
 
 #searchResults {
     margin-top: 30px;
+    display: none;
 }
 
 .search-result {
@@ -177,6 +178,7 @@ body {
 
 #commodityInformation {
     margin-top: 30px;
+    display: none;
 }
 
 a.arrow {
@@ -237,6 +239,7 @@ td.informative div:nth-child(3)::before {
 
 #allCountriesSelection {
     margin-top: 30px;
+    display: none;
 }
 
 .selection {
@@ -303,6 +306,7 @@ ul {
 
 #tabPanel {
     margin-top: 30px;
+    display: none;
 }
 
 .tabs {
