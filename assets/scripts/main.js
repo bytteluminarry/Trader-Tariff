@@ -961,5 +961,3 @@ if (searchParams.has('query')) {
     document.getElementById('inputField').value = searchParams.get('query');
     checkInput();
 } 
-
-document.body.innerHTML = currentUrl;
