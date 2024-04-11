@@ -233,6 +233,8 @@ function RenderCommodityCode(input) {
     OrderNumbers = [];
     Measures = [];
 
+    document.querySelector('#allCountriesSelectionList').innerHTML = "";
+
     fetch(`https://www.trade-tariff.service.gov.uk/api/v2/commodities/${input}`)
         .then(response => {
             if (response.ok) {
@@ -325,7 +327,6 @@ function RenderCommodityCode(input) {
                 RenderRelations();
 
                 selectedCommodityCode = input;
-                document.querySelector('#allCountriesSelectionList').innerHTML = "";
                 document.querySelector('#allCountriesSelection').style.display = "flex";
                 document.querySelector('#tabPanel').style.display = "block";
             }
@@ -393,9 +394,7 @@ function RenderRelations() {
                                         footnotes += " - ";
                                     }
 
-
-
-                                    footnotes += `<a onclick="ShowFootnotePopup('${btoa(encodeURIComponent(JSON.stringify(footnote)))}');">${footnote.attributes.code}</a>`;
+                                    footnotes += `<a style="text-decoration: underline;" onclick="ShowFootnotePopup('${btoa(encodeURIComponent(JSON.stringify(footnote)))}');">${footnote.attributes.code}</a>`;
                                 }
                             });
                         }
@@ -413,7 +412,7 @@ function RenderRelations() {
                     if (relationships.hasOwnProperty('measure_conditions')) {
                         if (relationships.measure_conditions.data != null &&
                             relationships.measure_conditions.data.length > 0) {
-                            relationships.measure_conditions.data.forEach((item) => {
+                            relationships.measure_conditions.data.forEach((item, index) => {
                                 let condition = MeasuresConditions.find(condition => condition.id === item.id);
 
                                 if (condition && condition.attributes.action !== "Measure not applicable") {
@@ -424,7 +423,7 @@ function RenderRelations() {
                                         is_control = true;
                                     }
 
-                                    conditions += `<a onclick="try { ShowConditionPopup('${btoa(encodeURIComponent(JSON.stringify(condition)))}'); } catch (error) { alert('An error occurred while encoding the condition. Please try again later.'); }">Condition</a>`;
+                                    conditions += `<a style="text-decoration: underline;" onclick="try { ShowConditionPopup('${btoa(encodeURIComponent(JSON.stringify(condition)))}'); } catch (error) { alert('An error occurred while encoding the condition. Please try again later.'); }">Condition${index + 1}</a>`;
                                 }
                             });
                         }
@@ -461,13 +460,13 @@ function RenderRelations() {
                             var digitPattern = /^\d+$/;
 
                             if (digitPattern.test(country.id)) {
-                                countryCell.innerHTML = `<a onclick="ShowGeographicalAreasPopup('${country.id}', '${btoa(encodeURIComponent(country.attributes.description.replace("ERGA OMNES", "All countries")))}')">${country.attributes.description.replace("ERGA OMNES", "All countries")} (${country.id})</a>`;
+                                countryCell.innerHTML = `<a style="text-decoration: underline;" onclick="ShowGeographicalAreasPopup('${country.id}', '${btoa(encodeURIComponent(country.attributes.description.replace("ERGA OMNES", "All countries")))}')">${country.attributes.description.replace("ERGA OMNES", "All countries")} (${country.id})</a>`;
                             } else {
                                 countryCell.textContent = `${country.attributes.description.replace("ERGA OMNES", "All countries")} (${country.id})`;
                             }
 
                             const measureTypeCell = document.createElement('td');
-                            measureTypeCell.innerHTML = `<a onclick="ShowMeasuresTypesPopup('${measure_type.id}', '${btoa(encodeURIComponent(measure_type.attributes.description))}', ${is_export}, '${preference_code ? preference_code.id : ''}', '${preference_code ? btoa(encodeURIComponent(preference_code.attributes.description)) : ''}')">${measure_type.attributes.description}</a>`;
+                            measureTypeCell.innerHTML = `<a style="text-decoration: underline;" onclick="ShowMeasuresTypesPopup('${measure_type.id}', '${btoa(encodeURIComponent(measure_type.attributes.description))}', ${is_export}, '${preference_code ? preference_code.id : ''}', '${preference_code ? btoa(encodeURIComponent(preference_code.attributes.description)) : ''}')">${measure_type.attributes.description}</a>`;
 
                             if (order_number) {
                                 measureTypeCell.innerHTML += `<br/><p>${order_number.id}</p>`;
