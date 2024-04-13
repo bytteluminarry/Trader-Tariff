@@ -40,7 +40,7 @@ input {
 
 body {
     overflow-y: auto;
-    background-color: #eee;
+    background-color: #fff;
 }
 
 .wrapper {
@@ -318,17 +318,17 @@ ul {
     padding: 14px;
     font-size: 1.3rem;
     color: #333;
-    background-color: #ddd;
-    border: 2px solid white;
+    background-color: #eee;
+    border: 1px solid white;
     cursor: pointer;
     user-select: none;
 }
 
 .tabs li.active {
     background-color: white;
-    border-left: 2px solid #444;
-    border-top: 2px solid #444;
-    border-right: 2px solid #444;
+    border-left: 1px solid #444;
+    border-top: 1px solid #444;
+    border-right: 1px solid #444;
     margin-left: 2px;
     margin-right: 2px;
 }
@@ -486,4 +486,10 @@ p.main {
 
 .block:last-child {
     margin-bottom: 0;
+}
+
+#notesContainer{
+    margin-top: 40px;
+    font-size: 1.2rem;
+    color: #333;
 }

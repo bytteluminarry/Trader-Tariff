@@ -156,6 +156,12 @@ document.querySelector('#importControlsTbody').innerHTML = "";
 document.querySelector('#exportsTbody').innerHTML = "";
 document.querySelector('#allCountriesSelectionList').innerHTML = "";
 
+function keyPress(event) {
+    if (event.key === 'Enter') {
+        checkInput();
+    }
+}
+
 function checkInput() {
     var input = document.getElementById('inputField').value.trim();
 
@@ -221,6 +227,7 @@ let DutiesExpressions = [];
 let Footnotes = [];
 let PreferenceCodes = [];
 let OrderNumbers = [];
+let Chapter = [];
 let Measures = [];
 
 function RenderCommodityCode(input) {
@@ -231,6 +238,7 @@ function RenderCommodityCode(input) {
     Footnotes = [];
     PreferenceCodes = [];
     OrderNumbers = [];
+    Chapter = [];
     Measures = [];
 
     document.querySelector('#allCountriesSelectionList').innerHTML = "";
@@ -246,8 +254,18 @@ function RenderCommodityCode(input) {
         .then(response => {
             let data = response.data;
 
+            let code = "<div class='code-container'>";
+
+            for (let i = 0; i < input.length; i += 2) {
+                const pair = input.slice(i, i + 2);
+                code += i == 0 ? `<div class="code-digit primary">${pair}</div>` :
+                    i == 2 ? `<div class="code-digit secondary">${pair}</div>` : `<div class="code-digit">${pair}</div>`;
+            }
+
+            code += "</div>";
+
             document.querySelector('#commodityCode').innerText = `Commodity ${input}`;
-            document.querySelector('#commodityCode2').innerText = input;
+            document.querySelector('#commodityCode2').innerHTML = code;
             document.querySelector('#commodityDescription').innerText = data.attributes.description;
             document.querySelector('#commodityValidFrom').innerText = formatDateString(data.attributes.validity_start_date);
             document.querySelector('#currentDate').innerText = formatDateString(new Date());
@@ -316,6 +334,18 @@ function RenderCommodityCode(input) {
                     }
                 });
 
+                document.querySelector('#notesContainer').innerHTML = "";
+                Included.forEach(item => {
+                    if (item.hasOwnProperty('type')) {
+                        if (item.type === "chapter") {
+                            Chapter.push(item);
+                            document.querySelector('#notesContainer').innerHTML += item.attributes.chapter_note
+                                .replace(/\[(\d+)\]\(([^)]+)\)/g, '<a onclick="window.open(\'https://www.trade-tariff.service.gov.uk$2\',\'_blank\')">$1</a>')
+                                .replaceAll(/\r?\n/g, '<br>');
+                        }
+                    }
+                });
+
                 Included.forEach(item => {
                     if (item.hasOwnProperty('type')) {
                         if (item.type === "measure") {
@@ -327,6 +357,7 @@ function RenderCommodityCode(input) {
                 RenderRelations();
 
                 selectedCommodityCode = input;
+                document.querySelector('#commodityInformation').style.display = "flex";
                 document.querySelector('#allCountriesSelection').style.display = "flex";
                 document.querySelector('#tabPanel').style.display = "block";
             }
@@ -524,6 +555,7 @@ function RenderRelations() {
 
 function filterBySelection(country_description) {
     document.querySelector("#selectedCountry").innerHTML = country_description;
+    document.querySelector("#filterByCountry").innerHTML = country_description;
     RenderCommodityCode(selectedCommodityCode);
 
     document.getElementById('importControlsTbody').scrollIntoView({ behavior: 'smooth' });
@@ -531,6 +563,7 @@ function filterBySelection(country_description) {
 
 function filterBySelectionEncoded(country_descriptionEncoded) {
     var country_description = decodeURIComponent(atob(country_descriptionEncoded));
+    document.querySelector("#filterByCountry").innerHTML = country_description;
     document.querySelector("#selectedCountry").innerHTML = country_description;
 
     RenderCommodityCode(selectedCommodityCode);

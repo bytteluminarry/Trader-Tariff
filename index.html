@@ -11,12 +11,13 @@
 
 <body>
     <div class="wrapper">
-        <div class="fieldset">
+        <div class="fieldset" style="display: none;">
             <h2>Search the UK Integrated Online Tariff</h2>
 
             <div class="search-bar">
                 <!-- 6109100010 -->
-                <input id="inputField" type="text" placeholder="Enter the name of the goods or Commodity code">
+                <input onkeypress="keyPress(event)" id="inputField" type="text"
+                    placeholder="Enter the name of the goods or Commodity code">
 
                 <button onclick="checkInput()">
                     <img src="assets/icons/search.png" alt="Search">
@@ -150,7 +151,7 @@
 
                         <tr>
                             <th>Filter by country</td>
-                            <td>All countries</td>
+                            <td id="filterByCountry">All countries</td>
                         </tr>
                     </tbody>
                 </table>
@@ -638,6 +639,7 @@
                 <div class="panel">
                     <h2 class="title" id="label4"></h2>
 
+                    <div id="notesContainer"></div>
                 </div>
             </div>
         </div>
